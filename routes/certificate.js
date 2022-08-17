@@ -9,7 +9,7 @@ router.get('/', CertificateController.get_all_certificates);
 
 router.post(
 	'/add-certificate',
-	upload.single('image'),
+	// upload.single('image'),
 	CertificateController.create_new_certificate
 );
 

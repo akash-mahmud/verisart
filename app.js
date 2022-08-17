@@ -26,6 +26,8 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // allow you to parse the json data
+app.use(express.urlencoded())
+app.use(express.json())
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb', extended: true }));
 

@@ -16,16 +16,15 @@ exports.get_all_certificates = async (req, res, next) => {
 };
 
 exports.create_new_certificate = (req, res, next) => {
-	const data = JSON.parse(req.body.data);
+	const data = req.body
 	const certificate = new Certificate({
 		_id: new mongoose.Types.ObjectId(),
 		title: data.title,
 		artist: data.artist,
 		year: data.year,
+		certificateImage : data.image
 	});
-	if (req.file) {
-		certificate.certificateImage = req.file.path;
-	}
+
 	certificate
 		.save()
 		.then((result) => {
